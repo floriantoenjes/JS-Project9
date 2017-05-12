@@ -66,7 +66,7 @@
         }
 
         $scope.addRecipe = function (recipe) {
-            if (recipe._id) {
+            if (recipe && recipe._id) {
                 dataService.updateRecipe(recipe);
             } else {
                 dataService.addRecipe(recipe);
