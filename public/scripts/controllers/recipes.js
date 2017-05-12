@@ -12,7 +12,7 @@ angular.module("app")
     });
 
     $scope.filterRecipes = function (category) {
-        dataService.getRecipesForCategory(function (response) {
+        dataService.getRecipesForCategory(category, function (response) {
             $scope.recipes = response.data;
         });
     };
