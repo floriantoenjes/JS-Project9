@@ -4,7 +4,9 @@ angular.module("app")
 
 .controller("RecipeDetailController", function ($location, $scope, dataService) {
 
-    /* Initialize Data */
+    /**
+    * Initialize Data
+    */
     dataService.getCategories(function (response) {
         $scope.categories = response.data;
     });
@@ -13,7 +15,9 @@ angular.module("app")
         $scope.foodItems = response.data;
     });
 
-    /* Functions */
+    /**
+    * Functions
+    */
     $scope.changeLocation = function (path) {
         $location.path("/" + path);
     };
