@@ -34,6 +34,7 @@ angular.module("app")
 
     $scope.deleteRecipe = function (id) {
         dataService.deleteRecipe(id);
+        getAllRecipes($scope, dataService);
     }
 
 });
