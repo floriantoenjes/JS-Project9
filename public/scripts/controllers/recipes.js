@@ -3,12 +3,15 @@
 angular.module("app")
 
 .controller("RecipesController", function ($location, $scope, dataService) {
+
+    /* Initialize Data */
     dataService.getCategories(function (response) {
         $scope.categories = response.data;
     });
 
     getAllRecipes($scope, dataService);
 
+    /* Functions */
     $scope.filterRecipes = function (category) {
         if (category === null) {
             getAllRecipes($scope, dataService);
