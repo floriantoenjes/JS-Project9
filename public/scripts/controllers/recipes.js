@@ -35,9 +35,11 @@
             $location.path("/" + path);
         };
 
-        $scope.deleteRecipe = function (id) {
-            dataService.deleteRecipe(id);
-            getAllRecipes($scope, dataService);
+        $scope.deleteRecipe = function (recipe) {
+            if (confirm(`Do you really want to delete the ${recipe.name} recipe?`)) {
+                dataService.deleteRecipe(recipe._id);
+                getAllRecipes($scope, dataService);
+            }
         }
 
         function getAllRecipes() {
