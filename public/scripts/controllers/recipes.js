@@ -12,6 +12,13 @@ angular.module("app")
     });
 
     $scope.filterRecipes = function (category) {
+        if (category === null) {
+            console.log("Is null!");
+            dataService.getRecipes(function (response) {
+                $scope.recipes = response.data;
+            });
+            return;
+        }
         dataService.getRecipesForCategory(category, function (response) {
             $scope.recipes = response.data;
         });
