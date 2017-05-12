@@ -7,11 +7,11 @@ angular.module("app")
         $scope.categories = response.data;
     });
 
-    getAllRecipes();
+    getAllRecipes($scope, dataService);
 
     $scope.filterRecipes = function (category) {
         if (category === null) {
-            getAllRecipes();
+            getAllRecipes($scope, dataService);
             return;
         }
         dataService.getRecipesForCategory(category, function (response) {
@@ -20,7 +20,7 @@ angular.module("app")
     };
 });
 
-function getAllRecipes() {
+function getAllRecipes($scope, dataService) {
     dataService.getRecipes(function (response) {
         $scope.recipes = response.data;
     });
