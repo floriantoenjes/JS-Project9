@@ -36,7 +36,6 @@ angular.module("app")
 
     this.addRecipe = function (recipe) {
         $http.post("http://localhost:5000/api/recipes/", recipe);
-//        console.log(recipe)
     };
 
     this.deleteRecipe = function (id) {

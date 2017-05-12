@@ -65,6 +65,7 @@ angular.module("app")
 
     $scope.addRecipe = function (recipe) {
         dataService.addRecipe(recipe);
+        $location.path("/");
     }
 
 });
