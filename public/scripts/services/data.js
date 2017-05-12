@@ -14,8 +14,9 @@ angular.module("app")
         .then(callback);
     };
 
-    this.getFoodItems = function () {
-        $http.get("http://localhost:5000/api/foodItems/");
+    this.getFoodItems = function (callback) {
+        $http.get("http://localhost:5000/api/foodItems/")
+        .then(callback);
     };
 
     this.getRecipesForCategory = function (category, callback) {

@@ -9,6 +9,11 @@ angular.module("app")
         $scope.categories = response.data;
     });
 
+    dataService.getFoodItems(function (response) {
+        $scope.foodItems = response.data;
+    });
+
+    /* Functions */
     $scope.changeLocation = function (path) {
         $location.path("/" + path);
     };
