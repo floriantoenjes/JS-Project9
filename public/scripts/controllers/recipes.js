@@ -6,9 +6,9 @@
 
     .controller("RecipesController", function ($location, $scope, dataService) {
 
-        /**
-         * Initialize Data
-         */
+    /**
+     * Initialize Data
+     */
 
         dataService.getCategories(function (response) {
             $scope.categories = response.data;
@@ -17,9 +17,9 @@
         getAllRecipes();
 
 
-        /**
-         * Functions
-         */
+    /**
+     * Functions
+     */
 
         $scope.filterRecipes = function (category) {
             if (category === null) {

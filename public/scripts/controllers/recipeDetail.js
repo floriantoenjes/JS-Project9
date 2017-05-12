@@ -6,9 +6,9 @@
 
     .controller("RecipeDetailController", function ($location, $scope, dataService) {
 
-        /**
-         * Initialize Data
-         */
+    /**
+     * Initialize Data
+     */
 
         const recipeId = $location.url().split("/")[2];
         if (recipeId !== undefined) {
@@ -25,9 +25,10 @@
             $scope.foodItems = response.data;
         });
 
-        /**
-         * Functions
-         */
+
+    /**
+     * Functions
+     */
 
         $scope.changeLocation = function (path) {
             $location.path("/" + path);
