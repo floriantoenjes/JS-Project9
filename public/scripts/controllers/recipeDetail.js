@@ -69,9 +69,12 @@
             if (recipe && recipe._id) {
                 dataService.updateRecipe(recipe);
             } else {
-                dataService.addRecipe(recipe);
+                dataService.addRecipe(recipe, function (response) {
+                    $location.path("/");
+                }, function (reason) {
+                    $scope.errors = reason.data.errors;
+                });
             }
-            $location.path("/");
         }
 
     });

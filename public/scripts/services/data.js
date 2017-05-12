@@ -36,8 +36,9 @@
             $http.put(`http://localhost:5000/api/recipes/${recipe._id}`, recipe);
         };
 
-        this.addRecipe = function (recipe) {
-            $http.post("http://localhost:5000/api/recipes/", recipe);
+        this.addRecipe = function (recipe, callback, errorCallback) {
+            $http.post("http://localhost:5000/api/recipes/", recipe)
+            .then(callback, errorCallback);
         };
 
         this.deleteRecipe = function (id) {
