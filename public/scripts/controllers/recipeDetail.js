@@ -68,6 +68,7 @@
         $scope.addRecipe = function (recipe) {
             if (recipe && recipe._id) {
                 dataService.updateRecipe(recipe);
+                $location.path("/");
             } else {
                 dataService.addRecipe(recipe, function (response) {
                     $location.path("/");

@@ -16,10 +16,8 @@
   <div class="grid-100">
     <p><i>The following errors were found:</i></p>
     <ul class="validation-errors">
-      <!-- TODO Add a directive to this li element so that it repeats
-        for each validation message that there is to display -->
-      <li>
-        <!-- TODO Add a binding expression to display the validation user message. -->
+      <li ng-repeat="error in errors">
+          {{error}}
       </li>
     </ul>
   </div>
