@@ -128,7 +128,7 @@
 
   <!-- TODO Add a directive to this div element so that it repeats 
     for each recipe ingredient to display. -->
-  <div ng-repeat="ingredient in recipe.ingredients" class="ingredient-row">
+  <div ng-repeat="ingredient in ingredients" class="ingredient-row">
     <div class="prefix-20 grid-30">
       <p>
         <!-- TODO Add directives to this select element to bind its value 
@@ -166,7 +166,7 @@
     <p>
       <!-- TODO Add a directive to this button in order to handle 
         when the user clicks to add a new recipe ingredient. -->
-      <button>+ Add Another Ingredient</button>
+      <button ng-click="addIngredient()">+ Add Another Ingredient</button>
     </p>
   </div>
 

@@ -18,4 +18,12 @@ angular.module("app")
         $location.path("/" + path);
     };
 
+    $scope.addIngredient = function () {
+        if ($scope.ingredients === undefined) {
+            $scope.ingredients = [{}];
+        } else {
+            $scope.ingredients.push({});
+        }
+    }
+
 });
