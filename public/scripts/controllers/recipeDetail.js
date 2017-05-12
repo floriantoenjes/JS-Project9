@@ -29,4 +29,15 @@ angular.module("app")
         }
     }
 
+    $scope.addStep = function () {
+        if ($scope.recipe === undefined) {
+            $scope.recipe = {};
+        }
+        if ($scope.recipe.steps === undefined) {
+            $scope.recipe.steps = [{}];
+        } else {
+            $scope.recipe.steps.push({});
+        }
+    }
+
 });

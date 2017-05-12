@@ -179,7 +179,7 @@
       <p>
         <!-- TODO Add a directive to this input element to bind its value 
           to the recipe step model's `description` property. -->
-        <input type="text">
+        <input ng-model="step.description" type="text">
       </p>
     </div>
     <div class="grid-5 pad-top">
@@ -195,7 +195,7 @@
     <p>
      <!-- TODO Add a directive to this button in order to handle 
        when the user clicks to add a new recipe step. -->
-     <button>+ Add Another Step</button>
+     <button ng-click="addStep()">+ Add Another Step</button>
     </p>
   </div>
 
