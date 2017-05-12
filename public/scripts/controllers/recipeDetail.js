@@ -37,19 +37,19 @@
 
         $scope.addIngredient = function () {
             addItem("ingredients");
-        }
+        };
 
         $scope.deleteIngredient = function (ingredient) {
             deleteItem("ingredients", ingredient);
-        }
+        };
 
         $scope.addStep = function () {
             addItem("steps");
-        }
+        };
 
         $scope.deleteStep = function (step) {
             deleteItem("steps", step);
-        }
+        };
 
         function addItem(name) {
             if ($scope.recipe === undefined) {
