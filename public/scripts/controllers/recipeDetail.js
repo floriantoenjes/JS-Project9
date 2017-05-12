@@ -63,4 +63,8 @@ angular.module("app")
         $scope.recipe.steps.splice(index, 1);
     }
 
+    $scope.addRecipe = function (recipe) {
+        dataService.addRecipe(recipe);
+    }
+
 });
