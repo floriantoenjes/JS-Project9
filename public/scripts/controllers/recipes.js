@@ -23,11 +23,11 @@
         $scope.filterRecipes = function (category) {
             if (category === null) {
                 getAllRecipes();
-                return;
+            } else {
+                dataService.getRecipesForCategory(category, function (response) {
+                    $scope.recipes = response.data;
+                });
             }
-            dataService.getRecipesForCategory(category, function (response) {
-                $scope.recipes = response.data;
-            });
         };
 
         $scope.changeLocation = function (path) {
