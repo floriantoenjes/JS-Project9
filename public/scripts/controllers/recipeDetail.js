@@ -7,6 +7,7 @@ angular.module("app")
     /**
     * Initialize Data
     */
+
     dataService.getCategories(function (response) {
         $scope.categories = response.data;
     });
@@ -18,6 +19,7 @@ angular.module("app")
     /**
     * Functions
     */
+
     $scope.changeLocation = function (path) {
         $location.path("/" + path);
     };

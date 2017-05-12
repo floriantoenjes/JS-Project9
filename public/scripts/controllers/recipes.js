@@ -7,6 +7,7 @@ angular.module("app")
     /**
     * Initialize Data
     */
+
     dataService.getCategories(function (response) {
         $scope.categories = response.data;
     });
@@ -16,6 +17,7 @@ angular.module("app")
     /**
     * Functions
     */
+
     $scope.filterRecipes = function (category) {
         if (category === null) {
             getAllRecipes($scope, dataService);
