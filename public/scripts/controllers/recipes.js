@@ -1,28 +1,28 @@
 "use strict";
 
-!function () {
+! function () {
 
     angular.module("app")
 
     .controller("RecipesController", function ($location, $scope, dataService) {
 
         /**
-        * Initialize Data
-        */
+         * Initialize Data
+         */
 
         dataService.getCategories(function (response) {
             $scope.categories = response.data;
         });
 
-        getAllRecipes($scope, dataService);
+        getAllRecipes();
 
         /**
-        * Functions
-        */
+         * Functions
+         */
 
         $scope.filterRecipes = function (category) {
             if (category === null) {
-                getAllRecipes($scope, dataService);
+                getAllRecipes();
                 return;
             }
             dataService.getRecipesForCategory(category, function (response) {
@@ -39,11 +39,12 @@
             getAllRecipes($scope, dataService);
         }
 
+        function getAllRecipes() {
+            dataService.getRecipes(function (response) {
+                $scope.recipes = response.data;
+            });
+        }
+
     });
 
-    function getAllRecipes($scope, dataService) {
-        dataService.getRecipes(function (response) {
-            $scope.recipes = response.data;
-        });
-    }
 }();
