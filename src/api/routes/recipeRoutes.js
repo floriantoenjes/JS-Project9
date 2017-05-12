@@ -4,7 +4,7 @@ var express = require('express');
 // define recipe model
 var recipeFields = {
   name: {
-    required: false,
+    required: true,
     dataType: 'string',
     displayName: 'Name'
   },
@@ -14,28 +14,28 @@ var recipeFields = {
     displayName: 'Description'
   },
   category: {
-    required: false,
+    required: true,
     dataType: 'string',
     displayName: 'Category'
   },
   prepTime: {
     required: false,
-    dataType: 'string',
+    dataType: 'number',
     displayName: 'Prep Time'
   },
   cookTime: {
     required: false,
-    dataType: 'string',
+    dataType: 'number',
     displayName: 'Cook Time'
   },
   ingredients: {
-    required: false,
+    required: true,
     dataType: 'array',
     displayName: 'Ingredients',
-    requireAtLeastOneElement: false,
+    requireAtLeastOneElement: true,
     elementSchema: {
       foodItem: {
-        required: false,
+        required: true,
         dataType: 'string',
         displayName: 'Item'
       },
@@ -45,20 +45,20 @@ var recipeFields = {
         displayName: 'Condition'
       },
       amount: {
-        required: false,
+        required: true,
         dataType: 'string',
         displayName: 'Amount'
       }
     }
   },
   steps: {
-    required: false,
+    required: true,
     dataType: 'array',
     displayName: 'Steps',
-    requireAtLeastOneElement: false,
+    requireAtLeastOneElement: true,
     elementSchema: {
       description: {
-        required: false,
+        required: true,
         dataType: 'string',
         displayName: 'Description'
       }
@@ -174,7 +174,6 @@ function validateFieldDataType(item, field, value, prefix) {
 
   switch (field.dataType) {
     case 'string':
-      break;
     case 'number':
       dataTypeIsValid = ((typeof value) === field.dataType);
       break;
