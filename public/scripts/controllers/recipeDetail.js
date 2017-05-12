@@ -85,7 +85,7 @@
             for (let error in reason.data.errors) {
                 $scope.errors.push(reason.data.errors[error][0].userMessage);
             }
-        };
+        }
 
     });
 }();
