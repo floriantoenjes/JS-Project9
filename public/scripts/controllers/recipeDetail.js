@@ -64,7 +64,11 @@ angular.module("app")
     }
 
     $scope.addRecipe = function (recipe) {
-        dataService.addRecipe(recipe);
+        if (recipe._id) {
+            dataService.updateRecipe(recipe);
+        } else {
+            dataService.addRecipe(recipe);
+        }
         $location.path("/");
     }
 

@@ -30,8 +30,8 @@ angular.module("app")
     };
 
 
-    this.updateRecipe = function (id) {
-        $http.put(`http://localhost:5000/api/recipes/${id}`);
+    this.updateRecipe = function (recipe) {
+        $http.put(`http://localhost:5000/api/recipes/${recipe._id}`, recipe);
     };
 
     this.addRecipe = function (recipe) {
