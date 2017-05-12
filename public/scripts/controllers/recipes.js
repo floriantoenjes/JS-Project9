@@ -1,46 +1,49 @@
 "use strict";
 
-angular.module("app")
+!function () {
 
-.controller("RecipesController", function ($location, $scope, dataService) {
+    angular.module("app")
 
-    /**
-    * Initialize Data
-    */
+    .controller("RecipesController", function ($location, $scope, dataService) {
 
-    dataService.getCategories(function (response) {
-        $scope.categories = response.data;
+        /**
+        * Initialize Data
+        */
+
+        dataService.getCategories(function (response) {
+            $scope.categories = response.data;
+        });
+
+        getAllRecipes($scope, dataService);
+
+        /**
+        * Functions
+        */
+
+        $scope.filterRecipes = function (category) {
+            if (category === null) {
+                getAllRecipes($scope, dataService);
+                return;
+            }
+            dataService.getRecipesForCategory(category, function (response) {
+                $scope.recipes = response.data;
+            });
+        };
+
+        $scope.changeLocation = function (path) {
+            $location.path("/" + path);
+        };
+
+        $scope.deleteRecipe = function (id) {
+            dataService.deleteRecipe(id);
+            getAllRecipes($scope, dataService);
+        }
+
     });
 
-    getAllRecipes($scope, dataService);
-
-    /**
-    * Functions
-    */
-
-    $scope.filterRecipes = function (category) {
-        if (category === null) {
-            getAllRecipes($scope, dataService);
-            return;
-        }
-        dataService.getRecipesForCategory(category, function (response) {
+    function getAllRecipes($scope, dataService) {
+        dataService.getRecipes(function (response) {
             $scope.recipes = response.data;
         });
-    };
-
-    $scope.changeLocation = function (path) {
-        $location.path("/" + path);
-    };
-
-    $scope.deleteRecipe = function (id) {
-        dataService.deleteRecipe(id);
-        getAllRecipes($scope, dataService);
     }
-
-});
-
-function getAllRecipes($scope, dataService) {
-    dataService.getRecipes(function (response) {
-        $scope.recipes = response.data;
-    });
-}
+}();
