@@ -40,9 +40,7 @@
   </div>
   <div class="grid-40">
     <p>
-      <!-- TODO Add a directive to this input element to bind its value 
-        to the recipe model's `name` property. -->
-      <input type="text">
+      <input ng-model="recipe.name" type="text">
     </p>
   </div>
 </div>
@@ -56,9 +54,7 @@
   </div>
   <div class="grid-60">
     <p>
-      <!-- TODO Add a directive to this textarea element to bind its content 
-        to the recipe model's `description` property. -->
-      <textarea></textarea>
+      <textarea ng-model="recipe.description"></textarea>
     </p>
   </div>
 </div>
