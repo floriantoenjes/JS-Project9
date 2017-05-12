@@ -2,7 +2,7 @@
 
 angular.module("app")
 
-.controller("RecipesController", function ($scope, dataService) {
+.controller("RecipesController", function ($location, $scope, dataService) {
     dataService.getCategories(function (response) {
         $scope.categories = response.data;
     });
@@ -18,6 +18,11 @@ angular.module("app")
             $scope.recipes = response.data;
         });
     };
+
+    $scope.changeLocation = function (path) {
+        $location.path("/" + path);
+    };
+
 });
 
 function getAllRecipes($scope, dataService) {
