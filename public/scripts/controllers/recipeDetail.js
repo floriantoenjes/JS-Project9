@@ -29,6 +29,11 @@ angular.module("app")
         }
     }
 
+    $scope.deleteIngredient = function (ingredient) {
+        const index = $scope.recipe.ingredients.indexOf(ingredient);
+        $scope.recipe.ingredients.splice(index, 1);
+    }
+
     $scope.addStep = function () {
         if ($scope.recipe === undefined) {
             $scope.recipe = {};
