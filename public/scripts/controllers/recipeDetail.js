@@ -1,14 +1,14 @@
 "use strict";
 
-!function () {
+! function () {
 
     angular.module("app")
 
     .controller("RecipeDetailController", function ($location, $scope, dataService) {
 
         /**
-        * Initialize Data
-        */
+         * Initialize Data
+         */
 
         const recipeId = $location.url().split("/")[2];
         if (recipeId !== undefined) {
@@ -26,8 +26,8 @@
         });
 
         /**
-        * Functions
-        */
+         * Functions
+         */
 
         $scope.changeLocation = function (path) {
             $location.path("/" + path);
@@ -67,17 +67,20 @@
 
         $scope.addRecipe = function (recipe) {
             if (recipe && recipe._id) {
-                dataService.updateRecipe(recipe);
-                $location.path("/");
+                dataService.updateRecipe(recipe, function (response) {
+                    $location.path("/");
+                }, errorHandler);
             } else {
                 dataService.addRecipe(recipe, function (response) {
                     $location.path("/");
-                }, function (reason) {
-                    $scope.errors = [];
-                    for (let error in reason.data.errors) {
-                        $scope.errors.push(reason.data.errors[error][0].userMessage);
-                    }
-                });
+                }, errorHandler);
+            }
+        };
+
+        function errorHandler(reason) {
+            $scope.errors = [];
+            for (let error in reason.data.errors) {
+                $scope.errors.push(reason.data.errors[error][0].userMessage);
             }
         };
 

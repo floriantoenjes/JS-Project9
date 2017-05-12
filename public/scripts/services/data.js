@@ -32,8 +32,9 @@
         };
 
 
-        this.updateRecipe = function (recipe) {
-            $http.put(`http://localhost:5000/api/recipes/${recipe._id}`, recipe);
+        this.updateRecipe = function (recipe, callback, errorCallback) {
+            $http.put(`http://localhost:5000/api/recipes/${recipe._id}`, recipe)
+            .then(callback, errorCallback);
         };
 
         this.addRecipe = function (recipe, callback, errorCallback) {
