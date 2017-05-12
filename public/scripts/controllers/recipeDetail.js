@@ -8,6 +8,13 @@ angular.module("app")
     * Initialize Data
     */
 
+    const recipeId = $location.url().split("/")[2];
+    if (recipeId !== undefined) {
+        dataService.getRecipe(recipeId, function (response) {
+            $scope.recipe = response.data;
+        });
+    }
+
     dataService.getCategories(function (response) {
         $scope.categories = response.data;
     });

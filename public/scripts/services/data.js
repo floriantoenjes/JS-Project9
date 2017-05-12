@@ -24,8 +24,9 @@ angular.module("app")
         .then(callback);
     };
 
-    this.getRecipe = function (id) {
-        $http.get(`http://localhost:5000/api/recipes/${id}`);
+    this.getRecipe = function (id, callback) {
+        $http.get(`http://localhost:5000/api/recipes/${id}`)
+        .then(callback);
     };
 
 
