@@ -10,4 +10,10 @@ angular.module("app")
     dataService.getRecipes(function (response) {
         $scope.recipes = response.data;
     });
+
+    $scope.filterRecipes = function (category) {
+        dataService.getRecipesForCategory(function (response) {
+            $scope.recipes = response.data;
+        });
+    };
 });
