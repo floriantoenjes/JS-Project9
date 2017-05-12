@@ -6,6 +6,10 @@
 
     .service("dataService", function ($http) {
 
+    /**
+     * GET
+     */
+
         this.getRecipes = function (callback) {
             $http.get("http://localhost:5000/api/recipes/")
             .then(callback);
@@ -31,18 +35,31 @@
             .then(callback);
         };
 
+    /**
+     * POST
+     */
+
         this.addRecipe = function (recipe, callback, errorCallback) {
             $http.post("http://localhost:5000/api/recipes/", recipe)
             .then(callback, errorCallback);
         };
+
+    /**
+     * PUT
+     */
 
         this.updateRecipe = function (recipe, callback, errorCallback) {
             $http.put(`http://localhost:5000/api/recipes/${recipe._id}`, recipe)
             .then(callback, errorCallback);
         };
 
+    /**
+     * DELETE
+     */
+
         this.deleteRecipe = function (id) {
             $http.delete(`http://localhost:5000/api/recipes/${id}`);
         };
+
     });
 }();
