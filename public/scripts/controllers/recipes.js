@@ -32,6 +32,10 @@ angular.module("app")
         $location.path("/" + path);
     };
 
+    $scope.deleteRecipe = function (id) {
+        dataService.deleteRecipe(id);
+    }
+
 });
 
 function getAllRecipes($scope, dataService) {
