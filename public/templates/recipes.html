@@ -6,6 +6,7 @@
       selects a new category so that you can refresh the recipes list. -->
     <select>
       <option value="">All Categories</option>
+      <option ng-repeat="category in categories">{{category.name}}</option>
     </select>
   </div>
   <div class="grid-70">
