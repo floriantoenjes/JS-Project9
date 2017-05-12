@@ -7,16 +7,11 @@ angular.module("app")
         $scope.categories = response.data;
     });
 
-    dataService.getRecipes(function (response) {
-        $scope.recipes = response.data;
-    });
+    getAllRecipes();
 
     $scope.filterRecipes = function (category) {
         if (category === null) {
-            console.log("Is null!");
-            dataService.getRecipes(function (response) {
-                $scope.recipes = response.data;
-            });
+            getAllRecipes();
             return;
         }
         dataService.getRecipesForCategory(category, function (response) {
@@ -24,3 +19,9 @@ angular.module("app")
         });
     };
 });
+
+function getAllRecipes() {
+    dataService.getRecipes(function (response) {
+        $scope.recipes = response.data;
+    });
+}
