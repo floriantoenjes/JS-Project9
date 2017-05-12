@@ -34,37 +34,39 @@
             $location.path("/" + path);
         };
 
+
         $scope.addIngredient = function () {
-            if ($scope.recipe === undefined) {
-                $scope.recipe = {};
-            }
-            if ($scope.recipe.ingredients === undefined) {
-                $scope.recipe.ingredients = [{}];
-            } else {
-                $scope.recipe.ingredients.push({});
-            }
+            addItem("ingredients");
         }
 
         $scope.deleteIngredient = function (ingredient) {
-            const index = $scope.recipe.ingredients.indexOf(ingredient);
-            $scope.recipe.ingredients.splice(index, 1);
+            deleteItem("ingredients", ingredient);
         }
 
         $scope.addStep = function () {
-            if ($scope.recipe === undefined) {
-                $scope.recipe = {};
-            }
-            if ($scope.recipe.steps === undefined) {
-                $scope.recipe.steps = [{}];
-            } else {
-                $scope.recipe.steps.push({});
-            }
+            addItem("steps");
         }
 
         $scope.deleteStep = function (step) {
-            const index = $scope.recipe.steps.indexOf(step);
-            $scope.recipe.steps.splice(index, 1);
+            deleteItem("steps", step);
         }
+
+        function addItem(name) {
+            if ($scope.recipe === undefined) {
+                $scope.recipe = {};
+            }
+            if ($scope.recipe[name] === undefined) {
+                $scope.recipe[name] = [{}];
+            } else {
+                $scope.recipe[name].push({});
+            }
+        }
+
+        function deleteItem(name, element) {
+            const index = $scope.recipe[name].indexOf(element);
+            $scope.recipe[name].splice(index, 1);
+        }
+
 
         $scope.addRecipe = function (recipe) {
             if (recipe && recipe._id) {
