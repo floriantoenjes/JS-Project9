@@ -72,7 +72,10 @@
                 dataService.addRecipe(recipe, function (response) {
                     $location.path("/");
                 }, function (reason) {
-                    $scope.errors = reason.data.errors;
+                    $scope.errors = [];
+                    for (let error in reason.data.errors) {
+                        $scope.errors.push(reason.data.errors[error][0].userMessage);
+                    }
                 });
             }
         }
