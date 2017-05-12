@@ -19,10 +19,13 @@ angular.module("app")
     };
 
     $scope.addIngredient = function () {
-        if ($scope.ingredients === undefined) {
-            $scope.ingredients = [{}];
+        if ($scope.recipe === undefined) {
+            $scope.recipe = {};
+        }
+        if ($scope.recipe.ingredients === undefined) {
+            $scope.recipe.ingredients = [{}];
         } else {
-            $scope.ingredients.push({});
+            $scope.recipe.ingredients.push({});
         }
     }
 

@@ -126,14 +126,9 @@
     </p>
   </div>
 
-  <!-- TODO Add a directive to this div element so that it repeats 
-    for each recipe ingredient to display. -->
-  <div ng-repeat="ingredient in ingredients" class="ingredient-row">
+  <div ng-repeat="ingredient in recipe.ingredients" class="ingredient-row">
     <div class="prefix-20 grid-30">
       <p>
-        <!-- TODO Add directives to this select element to bind its value 
-          to the recipe ingredient model's `foodItem` property and to 
-          populate the list with the food items from the database. -->
         <select ng-model="ingredient.foodItem" ng-options="foodItem.name for foodItem in foodItems">
           <option value="">Select Item</option>
         </select>
@@ -141,9 +136,7 @@
     </div>
     <div class="grid-30">
       <p>
-        <!-- TODO Add a directive to this input element to bind its value 
-          to the recipe ingredient model's `condition` property. -->
-        <input type="text">
+        <input ng-model="ingredient.condition" type="text">
       </p>
     </div>
     <div class="grid-15">
