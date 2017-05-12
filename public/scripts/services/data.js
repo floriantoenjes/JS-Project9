@@ -4,8 +4,9 @@ angular.module("app")
 
 .service("dataService", function ($http) {
 
-    this.getRecipes = function () {
-        $http.get("localhost:5000/api/recipes/");
+    this.getRecipes = function (callback) {
+        $http.get("http://localhost:5000/api/recipes/")
+        .then(callback);
     };
 
     this.getCategories = function (callback) {

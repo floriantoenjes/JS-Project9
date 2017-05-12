@@ -6,4 +6,8 @@ angular.module("app")
     dataService.getCategories(function (response) {
         $scope.categories = response.data;
     });
+
+    dataService.getRecipes(function (response) {
+        $scope.recipes = response.data;
+    });
 });
