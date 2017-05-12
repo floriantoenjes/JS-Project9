@@ -15,7 +15,7 @@ angular.module("app")
     };
 
     this.getFoodItems = function () {
-        $http.get("localhost:5000/api/foodItems/");
+        $http.get("http://localhost:5000/api/foodItems/");
     };
 
     this.getRecipesForCategory = function (category, callback) {
@@ -24,19 +24,19 @@ angular.module("app")
     };
 
     this.getRecipe = function (id) {
-        $http.get(`localhost:5000/api/recipes/${id}`);
+        $http.get(`http://localhost:5000/api/recipes/${id}`);
     };
 
 
     this.updateRecipe = function (id) {
-        $http.put(`localhost:5000/api/recipes/${id}`);
+        $http.put(`http://localhost:5000/api/recipes/${id}`);
     };
 
     this.addRecipe = function () {
-        $http.post("localhost:5000/api/recipes/");
+        $http.post("http://localhost:5000/api/recipes/");
     };
 
     this.deleteRecipe = function (id) {
-        $http.delete(`localhost:5000/api/recipes/${id}`);
+        $http.delete(`http://localhost:5000/api/recipes/${id}`);
     };
 });
