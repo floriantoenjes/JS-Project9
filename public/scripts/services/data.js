@@ -8,8 +8,9 @@ angular.module("app")
         $http.get("localhost:5000/api/recipes/");
     };
 
-    this.getCategories = function () {
-        $http.get("localhost:5000/api/categories");
+    this.getCategories = function (callback) {
+        $http.get("http://localhost:5000/api/categories")
+        .then(callback);
     };
 
     this.getFoodItems = function () {
