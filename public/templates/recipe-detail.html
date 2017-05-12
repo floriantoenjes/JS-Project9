@@ -129,7 +129,7 @@
   <div ng-repeat="ingredient in recipe.ingredients" class="ingredient-row">
     <div class="prefix-20 grid-30">
       <p>
-        <select ng-model="ingredient.foodItem" ng-options="foodItem.name for foodItem in foodItems">
+        <select ng-model="ingredient.foodItem" ng-options="foodItem.name as foodItem.name for foodItem in foodItems">
           <option value="">Select Item</option>
         </select>
       </p>
