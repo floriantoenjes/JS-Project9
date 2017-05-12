@@ -40,4 +40,9 @@ angular.module("app")
         }
     }
 
+    $scope.deleteStep = function (step) {
+        const index = $scope.recipe.steps.indexOf(step);
+        $scope.recipe.steps.splice(index, 1);
+    }
+
 });
